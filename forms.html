@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>Student form</title>
+</head>
+<body>
+  <form id="registrationForm">
+    <!-- Student Name -->
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <span id="nameError" class="error"></span><br>
+
+    <!-- Gender -->
+    <label>Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="Male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="Female">
+    <label for="female">Female</label><br>
+    <span id="genderError" class="error"></span><br>
+
+    <!-- Department -->
+    <label for="department">Department:</label><br>
+    <select id="department" name="department">
+      <option value="">--Select--</option>
+      <option value="Information Technology">Information Technology</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Mechanical">Mechanical</option>
+      <option value="Electrical">Electrical</option>
+    </select><br>
+    <span id="departmentError" class="error"></span><br>
+
+    <!-- Interests -->
+    <label>Interests:</label><br>
+    <input type="checkbox" id="sports" name="interests" value="Sports">
+    <label for="sports">Sports</label><br>
+    <input type="checkbox" id="reading" name="interests" value="Reading">
+    <label for="reading">Reading</label><br>
+    <input type="checkbox" id="coding" name="interests" value="Coding">
+    <label for="coding">Coding</label><br>
+    <span id="interestsError" class="error"></span>
+
+    <!-- Submit Button -->
+    <button type="button" onclick="validateForm()">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      document.getElementById('nameError').innerText = "";
+      document.getElementById('genderError').innerText = "";
+      document.getElementById('departmentError').innerText = "";
+      document.getElementById('interestsError').innerText = "";
+
+      let isValid = true;
+      const name = document.getElementById('name').value.trim();
+      if (name === "") {
+        alert("enter the name ");
+	return false;
+      }
+
+      const genderSelected = document.querySelector('input[name="gender"]:checked');
+      if (!genderSelected) {
+        alert("select a gender ");
+	return false;
+      }
+
+      const department = document.getElementById('department').value;
+      if (department === "") {
+        alert("select a department");
+	return false;
+
+      }
+
+      const interests = document.querySelectorAll('input[name="interests"]:checked');
+      if (interests.length === 0) {
+        alert("select any one intrest ");
+	return false;
+      }
+
+      if (isValid) {
+        alert("Form submitted successfully!");
+        document.getElementById('registrationForm').submit();
+      }
+    }
+  </script>
+</body>
+</html>

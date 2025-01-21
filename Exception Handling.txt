@@ -1,0 +1,38 @@
+Exception Handling
+---------------------
+Exception is an error condition which affects the normal flow of execution. 
+
+2 types 
+------
+checked exception
+unchecked exception - handled by user
+
+exception handling mechanism
+-------------------------
+1. try
+2. catch
+3. throw
+4. throws
+5. finally
+
+try
+{
+//code that may causes exception
+}
+catch(e)
+{
+document.write("Divisor is zero");
+}
+finally
+{
+document.write("End of the program");l
+}
+
+
+
+
+
+
+
+
+
